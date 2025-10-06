@@ -1,0 +1,66 @@
+# Configuration Coolify pour Dify
+# Ce fichier définit les paramètres spécifiques à Coolify
+
+# Nom de l'application
+name: "Dify Platform"
+
+# Description
+description: "Plateforme de développement d'applications IA avec Dify"
+
+# Type de déploiement
+deployment_type: "docker-compose"
+
+# Services principaux à exposer
+expose_services:
+  - name: "web"
+    port: 80
+    protocol: "http"
+    description: "Interface web Dify"
+  - name: "api"
+    port: 5001
+    protocol: "http"
+    description: "API Dify"
+
+# Variables d'environnement obligatoires
+required_env_vars:
+  - "RESEND_API_KEY"
+  - "MAIL_DEFAULT_SEND_FROM"
+
+# Variables d'environnement optionnelles avec valeurs par défaut
+optional_env_vars:
+  - name: "LOG_LEVEL"
+    default: "INFO"
+  - name: "VECTOR_STORE"
+    default: "qdrant"
+  - name: "ETL_TYPE"
+    default: "dify"
+
+# Ressources recommandées
+resources:
+  cpu: "2"
+  memory: "4Gi"
+  storage: "20Gi"
+
+# Ports à exposer
+ports:
+  - container_port: 80
+    host_port: 80
+    protocol: "http"
+  - container_port: 443
+    host_port: 443
+    protocol: "https"
+
+# Health checks
+health_checks:
+  - path: "/health"
+    port: 5001
+    initial_delay: 60
+    period: 30
+    timeout: 10
+    retries: 3
+
+# Labels Coolify
+labels:
+  coolify.managed: "true"
+  coolify.application: "dify"
+  coolify.version: "1.9.1"

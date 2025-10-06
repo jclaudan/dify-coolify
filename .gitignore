@@ -1,0 +1,56 @@
+# Dify Coolify - .gitignore
+
+# Variables d'environnement sensibles
+.env
+.env.local
+.env.production
+
+# Logs
+*.log
+logs/
+log/
+
+# Volumes Docker
+volumes/data/
+volumes/postgres/
+volumes/redis/
+volumes/qdrant/
+volumes/sandbox/
+volumes/plugin_daemon/
+
+# Certificats SSL
+nginx/ssl/
+*.crt
+*.key
+*.pem
+
+# Backup files
+*.backup
+*.bak
+*.sql
+
+# Temporary files
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node modules (si présent)
+node_modules/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Docker
+.docker/
+
+# Coolify specific
+.coolify/

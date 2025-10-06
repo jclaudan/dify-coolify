@@ -1,0 +1,50 @@
+# Fichiers à ignorer par Coolify lors du déploiement
+
+# Variables d'environnement sensibles
+.env
+.env.local
+.env.production
+
+# Logs
+*.log
+logs/
+log/
+
+# Volumes Docker (ne pas inclure dans l'image)
+volumes/data/
+volumes/postgres/
+volumes/redis/
+volumes/qdrant/
+volumes/sandbox/
+volumes/plugin_daemon/
+
+# Certificats SSL
+nginx/ssl/
+*.crt
+*.key
+*.pem
+
+# Backup files
+*.backup
+*.bak
+*.sql
+
+# Temporary files
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git
+.git/
+.gitignore
+
+# Documentation (optionnel)
+DEPLOYMENT.md
+README.md
